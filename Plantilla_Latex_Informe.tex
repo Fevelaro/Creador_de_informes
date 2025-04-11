@@ -56,9 +56,8 @@
 
 \section{Mediciones}
 \subsection{Alimentadores}
-En los alimentadores mostrados en el Cuadro  \ref{tab:Voltajesdelinea} se observan voltajes de línea en promedio un $ \VAR{Varianza}\% $ \VAR{ALTOoBAJO} que los esperados ($380V$). Lo anterior hace imprescindible la existencia de UPS para proteger los equipos sensibles, ya que estos voltajes implican que la tensión percibida por los equipos será mayor a la esperada por diseño.
-En cuanto a las corrientes, mostradas en el Cuadro \ref{tab:alimentadores}, se debe considerar que las tres fases poseen corrientes AGREGAR
-
+En los alimentadores mostrados en el Cuadro  \ref{tab:Voltajesdelinea} se observan voltajes de línea en promedio un $ \VAR{Varianza}\% $ \VAR{ALTOoBAJO} que los esperados ($380V$). Lo anterior hace imprescindible la existencia de UPS para proteger los equipos sensibles, ya que estos voltajes implican que la tensión percibida por los equipos será distinta a la esperada por diseño.
+En cuanto a las corrientes, mostradas en el Cuadro \ref{tab:alimentadores}, se debe considerar: La corriente de la fase R corresponde a un \VAR{Capacidad_corriente_FaseR} de la máxima soportada por diseño, la de la fase S corresponde a un \VAR{Capacidad_corriente_FaseS} de la máxima soportada por diseño y la de la fase T corresponde a un \VAR{Capacidad_corriente_FaseR} de la máxima soportada por diseño.
 
 \begin{center}
     \begin{table}[H]
@@ -95,9 +94,11 @@ En cuanto a las corrientes, mostradas en el Cuadro \ref{tab:alimentadores}, se d
     \begin{table}[H]
         \centering
         \begin{tabular}{c | c c c | c c c | c c c}
-            Valor & \multicolumn{3}{c}{UPS 1} & \multicolumn{3}{c}{UPS 2} & \multicolumn{3}{c}{UPS 3}  \\\hline
-            & Red & Entrada & Salida & Red & Entrada & Salida & Red & Entrada & Salida \\ 
-            Corriente & $2.5 A$ & $0.5 A$ & $0.0 A$ & $2.9 A$ & $0.5 A$ & $0.0 A$ & $0.4 A$ & $0.5 A$ & $0.0 A$\\
+             & \multicolumn{3}{c}{RED} & \multicolumn{3}{c}{Entrada} & \multicolumn{3}{c}{Salida}  \\\hline
+            & Voltaje $V$ & Corriente $I$ & Potencia $P$& Voltaje $V$ & Corriente $I$ & Potencia $P$& Voltaje $V$ & Corriente $I$ & Potencia $P$ \\ 
+            UPS 1 & $2.5 A$ & $0.5 A$ & $0.0 A$ & $2.9 A$ & $0.5 A$ & $0.0 A$ & $0.4 A$ & $0.5 A$ & $0.0 A$\\
+            %%%Agregar for o alguna manera de adaptarlo según cantidad de datos. pensar en esto.
+            
             Voltaje & $228.7 V$ & $228.7 V$ & $220.4 V$ & $228.8 V$ & $228.8 V$ & $220.5 V $ & $228.4 V$ & $ 228.4 V$ & $ 220.4 V$ \\ 
             Potencia & $ 571.75 W $ & $114.35 W$ & $0 W$ & $ 663.52 W$ & $114.4 W$ & $0 W$ & $91.36 W$ & $114.2 W$ & $0 W$ \\
         \end{tabular}

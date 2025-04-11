@@ -10,9 +10,18 @@ def generar_informe():
     ABSTRACT = "Pequeño resumen"
     ANTECEDENTES = "Se puede agregar algo mas detallado_esto es version demo"
 
+    Numero_de_UPS=3
+
     VLL=[380, 381, 382]
     VyC_ALIM=[222,225,229,1.5,2.5,3.6]
     PromVLL=round(sum(VLL[0:3])/3)
+    Vneutro_tierra=0.5
+
+
+    VdeUPS=[222,225,229,222,225,229,220.1,220.2,220.1,]
+
+    Vsin_respaldo=[220,221,229,1.5,2.2,3.5]
+    Psin_respaldo=[Vsin_respaldo[0]*Vsin_respaldo[3], Vsin_respaldo[1]*Vsin_respaldo[4], Vsin_respaldo[2]*Vsin_respaldo[5]]
 
     Varianza=abs(380-PromVLL)
     if 380 > PromVLL:
@@ -21,6 +30,11 @@ def generar_informe():
         ALTOoBajo="más alto"
     else:
         ALTOoBajo="igual"
+    
+    Capacidad_corriente_FaseR=(VyC_ALIM[3]*100)/22.7
+    Capacidad_corriente_FaseS=(VyC_ALIM[4]*100)/22.7
+    Capacidad_corriente_FaseT=(VyC_ALIM[5]*100)/22.7
+
     
 
     # Secciones para completar manualmente

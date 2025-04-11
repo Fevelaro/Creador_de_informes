@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Informe de Laboratorio - \VAR{fecha}}
+\author{\VAR{autor}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Datos del Experimento}
+\begin{itemize}
+\BLOCK{for dato in datos}
+    \item \VAR{dato['nombre']}: \VAR{dato['valor']} \VAR{dato['unidad']}
+\BLOCK{endfor}
+\end{itemize}
+
+\section{Imágenes}
+\BLOCK{for imagen in imagenes}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{\VAR{imagen['ruta']}}
+    \caption{\VAR{imagen['descripcion']}}
+    \label{fig:\VAR{imagen['etiqueta']}}
+\end{figure}
+\BLOCK{endfor}
+
+\section{Observaciones}
+\VAR{observaciones}
+
+\section{Análisis}
+\VAR{analisis}
+
+\section{Conclusiones}
+\VAR{conclusiones}
+
+\end{document}

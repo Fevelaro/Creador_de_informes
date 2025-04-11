@@ -1,0 +1,342 @@
+\documentclass{article}
+\setlength{\headheight}{30pt}%{46.94264pt}
+\addtolength{\topmargin}{10pt}%{-34.94264pt}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[spanish]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\footnotesize Departamento de Mantención}
+\fancyhead[R]{\includegraphics[width=3cm]{netlan.png}}
+%\lhead[\leftmark]{Netlan Telecomunicaciones}
+%\lhead[\leftmark]{Departamento de Mantención}
+%\lfoot[Padre Tadeo 4330]{}
+%\rfoot[]{www.netlan.cl}
+
+\title{Levantamiento Eléctrico\\\VAR{ID_Local}}
+\author{Ing. Felipe Velásquez Robledo}
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\begin{abstract}
+\VAR{ABSTRACT}
+\end{abstract}
+\section{Antecedentes}
+\VAR{ANTECEDENTES}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\linewidth]{Imagenes/IMG1.jpg}
+\caption{\label{fig:Tablero}Tablero de computación.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\linewidth]{Imagenes/IMG2.jpg}
+\caption{\label{fig:UPSes}UPSes del local.}
+\end{figure}
+
+
+\section{Mediciones}
+\subsection{Alimentadores}
+En los alimentadores mostrados en el Cuadro  \ref{tab:Voltajesdelinea} se observan voltajes de línea en promedio un $ \VAR{Varianza}\% $ \VAR{ALTOoBAJO} que los esperados ($380V$). Lo anterior hace imprescindible la existencia de UPS para proteger los equipos sensibles, ya que estos voltajes implican que la tensión percibida por los equipos será mayor a la esperada por diseño.
+En cuanto a las corrientes, mostradas en el Cuadro \ref{tab:alimentadores}, se debe considerar que las tres fases poseen corrientes AGREGAR
+
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c}
+        \multicolumn{2}{c}{Voltajes de línea}\\\hline
+             $V_{R-S}$ & $\VAR{VLL[0]} V$ \\
+             $V_{R-T}$ & $\VAR{VLL[1]} V$ \\
+             $V_{S-T}$ & $\VAR{VLL[2]} V$ \\
+        \end{tabular}
+        \caption{Voltajes de línea en alimentadores}
+        \label{tab:Voltajesdelínea}
+    \end{table}
+\end{center}
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c c}
+            Valor & R & S & T \\\hline
+            $V_{fase}V$ & $\VAR{VyC_ALIM[0]} V$ & $\VAR{VyC_ALIM[1]} V$  & $\VAR{VyC_ALIM[2]} V$ \\
+            $Corrientes I$ & $\VAR{VyC_ALIM[3]} A$  & $\VAR{VyC_ALIM[4]} A$  & $\VAR{VyC_ALIM[5]} A$ \\
+	    $Potencias P$ & $\VAR{VyC_ALIM[0]*VyC_ALIM[3]} W$ & $\VAR{VyC_ALIM[1]*VyC_ALIM[4]} W$  & $\VAR{VyC_ALIM[2]*VyC_ALIM[5]} W$ 
+        \end{tabular}
+        \caption{Corrientes y voltajes de fase en alimentadores}
+        \label{tab:alimentadores}
+    \end{table}
+\end{center}
+
+\subsection{Paños con respaldo}
+
+%%
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c | c c c | c c c | c c c}
+            Valor & \multicolumn{3}{c}{UPS 1} & \multicolumn{3}{c}{UPS 2} & \multicolumn{3}{c}{UPS 3}  \\\hline
+            & Red & Entrada & Salida & Red & Entrada & Salida & Red & Entrada & Salida \\ 
+            Corriente & $2.5 A$ & $0.5 A$ & $0.0 A$ & $2.9 A$ & $0.5 A$ & $0.0 A$ & $0.4 A$ & $0.5 A$ & $0.0 A$\\
+            Voltaje & $228.7 V$ & $228.7 V$ & $220.4 V$ & $228.8 V$ & $228.8 V$ & $220.5 V $ & $228.4 V$ & $ 228.4 V$ & $ 220.4 V$ \\ 
+            Potencia & $ 571.75 W $ & $114.35 W$ & $0 W$ & $ 663.52 W$ & $114.4 W$ & $0 W$ & $91.36 W$ & $114.2 W$ & $0 W$ \\
+        \end{tabular}
+        \caption{Valores UPS y Red antes del reemplazo de STA}
+        \label{tab:UPSes}
+    \end{table}
+\end{center}
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c | c c c | c c c | c c c}
+            Valor & \multicolumn{3}{c}{UPS 1} & \multicolumn{3}{c}{UPS 2} & \multicolumn{3}{c}{UPS 3}  \\\hline
+            & Red & Entrada & Salida & Red & Entrada & Salida & Red & Entrada & Salida \\ 
+            Corriente & $2.2 A$ & $0.5 A$ & $0.0 A$ & $0.0 A$ & $2.2 A$ & $2.6 A$ & $0.0 A$ & $0.7 A$ & $0.3 A$\\
+            Voltaje & $230.2 V$ & $229.9 V$ & $220.3 V$ & $229.9 V$ & $229.8 V$ & $220.7 V $ & $229.0 V$ & $ 229.7 V$ & $ 220.7 V$ \\ 
+            Potencia & $ 506.44 W $ & $114.95 W$ & $0 W$ & $ 0.0 W$ & $505.56 W$ & $573.82 W$ & $0.0 W$ & $160.79 W$ & $66.21 W$ \\
+        \end{tabular}
+        \caption{Valores UPS y Red después del reemplazo de STA}
+        \label{tab:UPs_despues}
+    \end{table}
+\end{center}
+
+
+
+
+\subsection{Circuitos sin respaldo}
+El tablero de computación posee siete circuitos que no se encuentran respaldados, correspondientes a los circuitos 10 a 16, donde 4 circuitos corresponden a la fase T, 2 a la fase S y 1 a la fase R.
+Los valores de tensión, corriente y potencia activa consumida por esos circuitos se encuentra detallada en el Cuadro \ref{tab:Pañosinrespaldo}.
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c c}
+             \multicolumn{4}{c}{Valores de tensión y potencia en paño sin respaldo} \\\hline
+             Corriente & $0.4 A$ & $0.6 A$ & $0.3 A$\\
+             Voltaje & $228.7 V$ & $228.7 V$ & $228.0 V$\\
+             Potencia  & $91.48 W$ & $137.22 W$ & $68.4 W$\\
+        \end{tabular}
+        \caption{Corriente, tensión y potencia en paño sin respaldo.}
+        \label{tab:Pañosinrespaldo}
+    \end{table}
+\end{center}
+
+
+\section{Fuentes de potencia ininterrumpible (UPS)}
+
+El local cuenta con tres UPS en el tablero de computación, correspondientes a el respaldo de cada una de las fases.
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l l c}
+            N° Ups & $1$ \\\hline
+            Fase & \multicolumn{2}{l}{R} \\
+            Marca & \multicolumn{2}{l}{Powersel} \\
+            Modelo & \multicolumn{2}{l}{6KVAS} \\
+            Potencia & \multicolumn{2}{l}{6kVA}\\
+            N° serie & \multicolumn{2}{l}{900062104130194} \\
+            Operativa & \multicolumn{2}{l}{Si} \\
+            \multirow{5}{2cm}{Conectividad} & \\ & serial & \\
+            & Modem & \\
+            & NIC & \\
+            & Status & \\
+            & Ip & si\\
+        \end{tabular}
+        \caption{UPS 1}
+        \label{tab:UPS1}
+    \end{table}
+\end{center}
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l l c}
+            N° Ups & $2$ \\\hline
+            Fase & \multicolumn{2}{l}{S} \\
+            Marca & \multicolumn{2}{l}{Saitec} \\
+            Modelo & \multicolumn{2}{l}{6KVAS} \\
+            Potencia & \multicolumn{2}{l}{6kVA}\\
+            N° serie & \multicolumn{2}{l}{900062107280156} \\
+            Operativa & \multicolumn{2}{l}{Si} \\
+            \multirow{5}{2cm}{Conectividad} & \\ & serial & \\
+            & Modem & \\
+            & NIC & \\
+            & Status & \\
+            & Ip & si\\
+        \end{tabular}
+        \caption{UPS 2}
+        \label{tab:UPS2}
+    \end{table}
+\end{center}
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l l c}
+            N°Ups & $3$ \\\hline
+            Fase & \multicolumn{2}{l}{T} \\
+            Marca & \multicolumn{2}{l}{Powersel} \\
+            Modelo & \multicolumn{2}{l}{6KVAS} \\
+            Potencia & \multicolumn{2}{l}{6kVA}\\
+            N° serie & \multicolumn{2}{l}{900062104130179} \\
+            Operativa & \multicolumn{2}{l}{Si} \\
+            \multirow{5}{2cm}{Conectividad} & \\ & serial & \\
+            & Modem & \\
+            & NIC & \\
+            & Status & \\
+            & Ip & si\\
+        \end{tabular}
+        \caption{UPS 3}
+        \label{tab:UPS3}
+    \end{table}
+\end{center}
+
+\section{Circuitos}
+
+EL tablero alimenta 16 circuitos. De los cuales 4 corresponden a la fase R (3 con respaldo y 1 sin respaldo), 5 a la fase S (3 con respaldo y 2 sin respaldo) y 7 a la fase T (3 con respaldo y 4 sin respaldo.
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c | c c c}
+            N° & Corriente $A$ & UPS / fase & N° & Corriente $A$ & UPS / fase \\\hline
+            1 & $1.0 A$ & UPS 1 & 9 & $0.0 A$ & UPS 3\\
+            2 & $1.1 A$ & UPS 1 & 10 & $0.0 A$ & Fase T\\
+            3 & $0.0 A$ & UPS 1 & 11 & $0.5 A$ & Fase S\\
+            4 & $1.1 A$ & UPS 2 & 12 & $0.5 A$ & Fase S\\
+            5 & $0.7 A$ & UPS 2 & 13 & $0.2 A$ & Fase S\\
+            6 & $0.7 A$ & UPS 2 & 14 & $0.0 A$ & Fase T\\
+            7 & $0.3 A$ & UPS 3 & 15 & $0.5 A$ & Fase R\\
+            8 & $0.0 A$ & UPS 3 & 16 & $0.0 A$ & Fase T
+            
+        \end{tabular}
+        \caption{Corrientes y dependencia de circuitos}
+        \label{tab:circuitos}
+    \end{table}
+\end{center}
+
+\subsection{Cargas conectadas a circuitos}
+En el Cuadro \ref{tab:Cargas_conectadas} se aprecian las cargas conectadas a cada circuito. Sin embargo, debe considerarse que, existen dos circuitos de los cuales no fue posible conocer su carga. Esto puede deberse a que alimentan elementos a los que no tenemos acceso, como arqueo, o que alimentan elementos ajenos al tablero de computación, por lo que no fue pesquizado.\\
+Otro aspecto relevante a considerar dice relación con que en sala existen enchufes en mal estado, o con enchufes comunes, lo que posibilita la conexión de elementos indebidos que pueden alterar el funcionamiento esperado del sistema eléctrico reservado para computación, tal como se evidencia en la Figura \ref{fig:enchufe1ensala}.
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cc}
+            N° Cto & Carga conectada \\\hline
+            01 & Cajas 1,3,5 y 7\\
+            02 & Rack PDU 1\\
+            03 & Disponible \\
+            04 & Cajas 2,4,6 y 8\\
+            05 & Rack PDU 2\\
+            06 & \\
+            07 & Balanzas\\
+            08 & Disponible\\
+            09 & Disponible\\
+            10 & Consulta Precios\\
+            11 & Servicio al cliente, Infovip y Servifacil\\
+            12 & Reloj Control\\
+            13 & Administración\\
+            14 & Disponible\\
+            15 & \\
+            16 & Disponible\\
+        \end{tabular}
+        \caption{Cargas conectadas a circuitos}
+        \label{tab:Cargas_conectadas}
+    \end{table}
+\end{center}
+
+\begin{figure} [H]
+\centering
+\includegraphics[width=0.25\linewidth]{Imagenes/IMG_3208.jpg}
+\caption{\label{fig:enchufe1ensala}Enchufes en mal estado.}
+\end{figure}
+
+\newpage
+\section{Instalación}
+El trabajo consiste en la instalación de dos sistemas de transferencia automática nuevas. 
+Tal como se aprecia en la Figura \ref{fig:Sistemas de transferencia nuevas} queda un sistema de transferencia antiguo que respalda la fase R. Este se encuentra enclavado, por lo que siempre funciona con alimentación desde la red.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.25\linewidth]{Imagenes/IMG_3189.jpg}
+\caption{\label{fig:Sistemas de transferencia antiguas}Tablero con STA antiguas.}
+\end{figure}
+
+\begin{figure} [H]
+\centering
+\includegraphics[width=0.25\linewidth]{Imagenes/IMG_3195.jpg}
+\caption{\label{fig:Sistemas de transferencia nuevas}Tablero con STA nuevas.}
+\end{figure}
+
+
+\section{Pruebas}
+En este tablero se realizaron tres tipos de pruebas después de la instalación. Pruebas de respaldo de UPS, de funcionamiento del STA y de funcionamiento del Bypass manual.
+
+\subsection{Respaldo de UPS}
+
+Las pruebas de UPS muestran un desempeño bajo el mínimo esperado (80\% del ideal) en las tres UPS.
+A partir del cuadro \ref{tab:respaldoUPS} es posible observar que las ups están trabajando con una carga mínima, por ende debiesen tener un respaldo superior a una hora en todos los casos. Sin embargo, debido al estado de las baterías esto no es posible. El caso más extremo corresponde a la UPS 1. Que no teniendo carga conectada sufre un desgaste muy rápido de sus baterías.
+
+\begin{center}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c}
+            UPS & Respaldo esperado & Respaldo Real \\
+             $1$ & $inf$ min & $8$ min \\
+             $2$ & $67$ min & $8$ min \\
+             $3$ & $100$ min & $6.25$ min
+        \end{tabular}
+        \caption{Estado del respaldo de UPS}
+        \label{tab:respaldoUPS}
+    \end{table}
+\end{center}
+
+\subsection{Funcionamiento de STA}
+Se realizaron pruebas de cambio de alimentación automático en los STA. 
+Estas pruebas mostraron un cambio instantáneo en las STA 2 y 3, de manera que cuando ocurre una falla, los equipos conectados no perciben un corte de energía (esto se debe a que la velocidad de transferencia es inferior a $8 ms$).
+Sin embargo, la transferencia uno se encuentra enclavada en red, por lo que no es capaz de cambiar la fuente de alimentación.
+
+\subsection{Funcionamiento del ByPass manual}
+Se realizaron pruebas de ByPass exitosas para los sistemas de transferencia automáticos nuevos. Y quedaron completamente operativos.
+Debido a lo anterior, es posible reemplazar UPS con el local funcionando.\\
+Sin embargo, la fase R no posee dicho sistema, por lo que no es posible intervenir dicha fase con linea viva de manera segura.
+\section{Observaciones Generales}
+El tablero se encuentra apropiadamente dimensionado, pero no se observan elementos indispensables según norma, como: Un breaker omnipolar general, protección termomagnética para cada circuito alimentado, tablero en buen estado, ya que tiene la puerta caída y no tiene espacio suficiente al frente. Tampoco cumple con elementos recomendados como un supresor de transientes para los alimentadores del tablero, ya que posee uno exclusivamente para las cargas sin respaldo.
+
+\section{Medidas recomendadas}
+A continuación se elabora una lista con las medidas recomendadas para este tablero, aunque se debe considerar que no todas tienen igual grado de urgencia. Al respecto, priorizando la operatividad del local, las medidas 1 y 2 son imprescindibles. Las 4, 5 y 6 son necesarias considerando seguridad operacional y normativa vigente. Por ultimo, las medidas 7 y 8 son altamente recomendables para un funcionamiento óptimo.
+
+\begin{enumerate}
+    \item Reemplazo STA fase R
+    \item Reemplazo de 3 UPS
+    \item Reemplazo Breaker tripolar del supresor de transientes por uno con curva D
+    \item Reemplazo Breaker tripolar de barras sin respaldo por uno con curva C
+    \item Reemplazo de breaker general por uno tetrapolar caja moldeada, acorde a normativa vigente.
+    \item Instalación de protección termomagnética para cada circuito
+    \item instalación de un supresor de transientes para el tablero general
+    \item Reparación puerta de tablero y acondicionamiento del espacio para cumplir con normativa.
+\end{enumerate}
+%%
+\end{document}
